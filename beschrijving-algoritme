@@ -1,0 +1,66 @@
+-- hoofdfunctie --
+
+Je hebt een string met de naam String.
+
+Pakt letter op nummer X in String 
+	Kies goede functie op basis van gekozen letter en voer heb uit (bijvoorbeeld functie letterN() )
+	x + 1 
+Herhaal
+
+
+
+-- Voorbeeldfunctie van letter N --
+
+rotate(90)
+forward(10)
+rotate(-165)
+forward(11)
+rotate(315)
+forward(10)
+penUp()
+backward(10)
+rotate(-90)
+
+-- forward --
+
+pin Xd high
+pin Yd high
+pin Xp high
+pin Yp high
+wait X aantal sec
+pin Xp low
+pin Yp low
+
+-- backward --
+
+pin Xd low
+pin Yd low
+pin Xp high
+pin Yp high
+wait X aantal sec
+pin Xp low
+pin Yp low
+
+-- rotate --
+
+pin Xd low
+pin Yd high
+pin Xp high
+pin Yp high
+wait X aantal sec
+pin Xp low
+pin Yp low
+
+-- penUp--
+
+pin Zd low
+pin Zp high
+wait X aantal sec
+pin Zp low
+
+-- penDown -- 
+
+pin Zd high
+pin Zp high
+wait X aantal sec
+pin Zp low
