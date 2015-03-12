@@ -1,0 +1,13 @@
+1.  10 cm naar voren rijden
+2.  90 graden draaien
+3.  13 cm naar voren rijden
+4.  180 graden naar links draaien
+5.  pen neerzetten
+6.  bocht naar rechts rijden met een straal van 6cm
+7.  12 cm naar voren rijden
+8.  bocht naar rechts rijden met een straal van 6 cm
+9.  pen omhoog
+9.  35 graden naar rechts draaien 
+10. 32 cm naar voren rijden
+11. 90 graden naar links draaien
+12. volgende letter
