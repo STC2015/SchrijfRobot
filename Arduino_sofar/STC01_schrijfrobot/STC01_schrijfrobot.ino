@@ -311,87 +311,89 @@ void displayNummer(int i){
 
 
 void nummer1(){
-  digitalWrite(2, HIGH);
-  digitalWrite(6,HIGH);
+  digitalWrite(7, HIGH);
+  digitalWrite(4,HIGH);
 }
 
 void nummer2(){
   digitalWrite(2, HIGH);
   digitalWrite(3, HIGH);
-  digitalWrite(5, HIGH);
-  digitalWrite(7,HIGH);
-  digitalWrite(8,HIGH);
+  digitalWrite(7, HIGH);
+   digitalWrite(9, HIGH);
+    digitalWrite(8, HIGH);
 }
 
 void nummer3(){
-  digitalWrite(2, HIGH);
-  digitalWrite(3, HIGH);
-  digitalWrite(5, HIGH);
-  digitalWrite(6,HIGH);
-  digitalWrite(7,HIGH);
+   digitalWrite(3, HIGH);
+      digitalWrite(4, HIGH);
+      digitalWrite(7, HIGH);
+       digitalWrite(8, HIGH);
+        digitalWrite(9, HIGH);
 }
   
   void nummer4(){
-  digitalWrite(2, HIGH);
-  digitalWrite(4, HIGH);
-  digitalWrite(5, HIGH);
-  digitalWrite(6,HIGH);
+     digitalWrite(3, HIGH);
+    digitalWrite(4, HIGH);
+    digitalWrite(7, HIGH);
+     digitalWrite(9, HIGH);
+    
+
 }
   
   void nummer5(){
-  digitalWrite(3, HIGH);
-  digitalWrite(4, HIGH);
-  digitalWrite(5, HIGH);
-  digitalWrite(6,HIGH);
-  digitalWrite(7,HIGH);
+digitalWrite(3, HIGH);
+digitalWrite(4, HIGH);
+ digitalWrite(8, HIGH);
+  digitalWrite(9, HIGH);
+
+ 
 }
   
   void nummer6(){
-  digitalWrite(3, HIGH);
-  digitalWrite(4, HIGH);
-  digitalWrite(5, HIGH);
-  digitalWrite(6,HIGH);
-  digitalWrite(7,HIGH);
+digitalWrite(2, HIGH);
+digitalWrite(3, HIGH);
+digitalWrite(4, HIGH);
+ digitalWrite(9, HIGH);
   digitalWrite(8, HIGH);
 }
   
   void nummer7(){
-  digitalWrite(2, HIGH);
-  digitalWrite(3, HIGH);
-  digitalWrite(6, HIGH);
+    digitalWrite(4, HIGH);
+       digitalWrite(7, HIGH);
+        digitalWrite(8, HIGH);
+
 }
   
   void nummer8(){
-  digitalWrite(2,HIGH);
-  digitalWrite(3, HIGH);
-  digitalWrite(4, HIGH);
-  digitalWrite(5, HIGH);
-  digitalWrite(6,HIGH);
-  digitalWrite(7,HIGH);
-  digitalWrite(8, HIGH);
+digitalWrite(2, HIGH);
+digitalWrite(3, HIGH);
+digitalWrite(4, HIGH);  
+   digitalWrite(7, HIGH);
+    digitalWrite(8, HIGH);
+     digitalWrite(9, HIGH);
  
 }
   void nummer9(){
-  digitalWrite(2, HIGH);
-  digitalWrite(3, HIGH);
-  digitalWrite(4, HIGH);
-  digitalWrite(5,HIGH);
-  digitalWrite(6,HIGH);
+    digitalWrite(3, HIGH);  
+   digitalWrite(4, HIGH);
+  digitalWrite(9, HIGH);
+  digitalWrite(8,HIGH);
   digitalWrite(7,HIGH);
+  digitalWrite(13, HIGH);
 }
 
 
 // letter L functie
 void letterL(){
   digitalWrite(4, HIGH);
-  digitalWrite(5, HIGH);
+  digitalWrite(9, HIGH);
   digitalWrite(8, HIGH);
 }
   void displayUit(){
     digitalWrite(2,LOW);
   digitalWrite(3, LOW);
   digitalWrite(4, LOW);
-  digitalWrite(5, LOW);
+  digitalWrite(9, LOW);
   digitalWrite(6,LOW);
   digitalWrite(7,LOW);
   digitalWrite(8, LOW);
