@@ -55,14 +55,14 @@ void achteruit(int afstand)
     analogWrite(E1, 0);   //PWM Speed Control
     analogWrite(E2, 0);   //PWM Speed Control
 }
-void stilrechtsdraaien(int afstand)
+void rechtsdraaien(int afstand)
 {
    digitalWrite(M1, HIGH);   
    analogWrite(E1, 255);   //PWM Speed Control
    delay(afstand);
     analogWrite(E1, 0);   //PWM Speed Control
 }
-void stillinksdraaien (int afstand)
+void linksdraaien (int afstand)
 {
   digitalWrite(M2, HIGH);   
    analogWrite(E2, 255);   //PWM Speed Control
@@ -71,6 +71,26 @@ void stillinksdraaien (int afstand)
 }
 
 
+void stilrechtsdraaien(int afstand)
+{
+   digitalWrite(M1, HIGH); 
+   digitalWrite(M2, LOW);  
+   analogWrite(E1, 255);
+       analogWrite(E2, 255);   //PWM Speed Control
+     delay(afstand);
+    analogWrite(E1, 0);   //PWM Speed Control
+    analogWrite(E2, 0);
+}
+void stillinksdraaien (int afstand)
+{
+  digitalWrite(M2, HIGH); 
+  digitalWrite(M1, LOW);  
+   analogWrite(E2, 255);   //PWM Speed Control
+   analogWrite(E1, 255);
+   delay(afstand);
+    analogWrite(E2, 0);   //PWM Speed Control
+    analogWrite(E1, 0);
+}
 
 
 void loop()
