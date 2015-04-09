@@ -1,0 +1,16 @@
+1.  90 graden naar link draaien
+2.  10 cm naar voren rijden
+3.  +- 25cm recht naar voren rijden
+4.  90 graden naar rechts draaien
+5.  +- 7cm naar voren rijden
+6.  bocht naar rechts met diameter van +- 12,5cm (straal van 6,25cm)
+7.  +- 7cm naar voren rijden
+8.  +- 7cm naar achter rijden
+9.  180 graden draaien naar links
+10.  bocht naar rechts met diameter van +- 12,5cm (straal van 6,25cm)
+11.  +- 7 cm naar voren rijden
+12.  90 graden naar links draaien
+13.  10 cm naar voren rijden
+14.  90 graden naar links draaien
+15.  15 cm naar voren rijden
+16.  volgende letter

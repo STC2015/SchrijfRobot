@@ -1,0 +1,11 @@
+1.  90 graden draaien naar links
+2.  10 cm naar voren rijden
+3.  pen neerzetten
+4.  25 cm naar voren rijden
+5.  90 graden naar rechts draaien
+6.  een bocht maken tot de onderkant van de letter maken (geen straal, is geen ronde cirkel)
+7.  pen omhoog
+8.  90 graden naar links draaien
+9.  10 cm naar voren rijden
+10. 13 cm naar voren rijden
+11. volgende letter

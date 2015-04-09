@@ -1,0 +1,15 @@
+1.  90 graden naar links draaien
+2.  10 cm naar voren rijden
+3.  pen neerzetten 
+4.  25 cm naar voren rijden
+5.  12,5 cm naar achter rijden
+6.  90 graden naar rechts draaien
+7.  11 cm naar voren rijden
+8.  90 graden naar links draaien
+9.  12, 5 cm naar voren rijden en 25 cm naar achter rijden
+10. pen omhoog
+11. 180 graden draaien
+12. 10 cm naar voren rijden
+13. 90 graden naar links draaien
+14. 4 cm naar voren rijden
+15 volgende letter
