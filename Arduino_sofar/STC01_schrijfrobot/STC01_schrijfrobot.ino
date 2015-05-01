@@ -2,7 +2,12 @@
 int snelheidVooruit = 155;
 int snelheidAchteruit = 155;
 int draaisnelheid = 155;
-int snelheid = 150;
+int snelheidlinks = 150;
+int snelheidrechts = 160;
+int snelheidlangzaam = 90;
+int knop = 0;
+boolean button = true;
+boolean once = true;
 
 //Arduino PWM Speed Control
 int E1 = 5;  
@@ -22,14 +27,13 @@ void setup()
   Serial.begin(9600);
     pinMode(M1, OUTPUT);   
     pinMode(M2, OUTPUT); 
-    pinMode(2, OUTPUT);
+    pinMode(2, INPUT);
  pinMode(3, OUTPUT);
  pinMode(4, OUTPUT);
- pinMode(5, OUTPUT);
- pinMode(6, OUTPUT);
+ pinMode(6, INPUT);
  pinMode(7, OUTPUT);
  pinMode(8, OUTPUT);
- pinMode(9, OUTPUT);
+ pinMode(9, INPUT);
  pinMode(10, OUTPUT);
  pinMode(11, OUTPUT);
  pinMode(12, OUTPUT);
@@ -40,46 +44,67 @@ void setup()
  digitalWrite(11,HIGH);
  digitalWrite(12,HIGH);
 } 
- 
+
 void loop() 
 { 
-  
-content = "";
-
-    while(Serial.available()) {
-      character = Serial.read();
-      content.concat(character);
-      delay(10);
-  }
-
-  if (content != "") {
-    for(int i = 0; i < content.length(); i++){
-      char substr = content.charAt(i);
-      Serial.println("letter" + substr);
-      SchrijfLetter(substr);
-      //vooruit(0);
-      int gaatSchrijven = i + 1;
-       displayNummer(gaatSchrijven);
-      letterL();
-      //linksdraaien(0);
-      delay(5000);
-      displayUit();
-      
-      
-      delay(10);
-      
+//   while(button){
+//     if(digitalRead(2) == HIGH){ button = false; Serial.println("knop"); }
+//   }
+//  
+// 
+//content = "d";
+//
+//    while(Serial.available()) {
+//      character = Serial.read();
+//      content.concat(character);
+//      delay(10);
+//  }
+// 
+//  if (content != "") {
+//    for(int i = 0; i < content.length(); i++){
+//      char substr = content.charAt(i);
+//      Serial.println("letter" + substr);
+//      SchrijfLetter(substr);
+//      //vooruit(0);
+//      int gaatSchrijven = i + 1;
+//       displayNummer(gaatSchrijven);
+//      letterL();
+//      //linksdraaien(0);
+//      delay(5000);
+//      displayUit();
+//      
+//      
+//      delay(10);
+//      
+//    }
+//    
+//  }
+    
+    while(once) {
+ //     SchrijfLetter('l');
+//SchrijfLetter('i');
+      SchrijfLetter('o');
+//      SchrijfLetter('n');
+      once = false;
     }
-    
-  }
-    
+}
+void achteruitlangzaam(int afstand)
+{
+      digitalWrite(M1, LOW);   
+    digitalWrite(M2, LOW);       
+   analogWrite(E1, snelheidlangzaam);   //PWM Speed Control
+    analogWrite(E2, snelheidlangzaam);   //PWM Speed Control
+    delay(afstand);
+    analogWrite(E1, 0);   //PWM Speed Control
+    analogWrite(E2, 0);
 }
 
 void vooruit(int afstand)
 {
     digitalWrite(M1, HIGH);   
     digitalWrite(M2, HIGH);       
-    analogWrite(E1, snelheid);   //PWM Speed Control
-    analogWrite(E2, snelheid);   //PWM Speed Control
+    analogWrite(E1, snelheidlinks);   //PWM Speed Control
+    analogWrite(E2, snelheidrechts);   //PWM Speed Control
     delay(afstand);
     analogWrite(E1, 0);   //PWM Speed Control
     analogWrite(E2, 0);
@@ -90,8 +115,8 @@ void achteruit(int afstand)
 {
     digitalWrite(M1, LOW);   
     digitalWrite(M2, LOW);       
-   analogWrite(E1, snelheid);   //PWM Speed Control
-    analogWrite(E2, snelheid);   //PWM Speed Control
+   analogWrite(E1, snelheidlinks);   //PWM Speed Control
+    analogWrite(E2, snelheidrechts);   //PWM Speed Control
     delay(afstand);
     analogWrite(E1, 0);   //PWM Speed Control
     analogWrite(E2, 0);
@@ -100,8 +125,8 @@ void linksdraaien(int afstand)
 {
   digitalWrite(M2, HIGH); 
   digitalWrite(M1, LOW);  
-   analogWrite(E2, snelheid);   //PWM Speed Control
-   analogWrite(E1, snelheid);
+   analogWrite(E2, snelheidrechts);   //PWM Speed Control
+   analogWrite(E1, snelheidlinks);
    delay(afstand);
     analogWrite(E2, 0);   //PWM Speed Control
     analogWrite(E1, 0);
@@ -110,8 +135,8 @@ void rechtsdraaien(int afstand)
 {
    digitalWrite(M1, HIGH); 
    digitalWrite(M2, LOW);  
-   analogWrite(E1, snelheid);
-       analogWrite(E2, snelheid);   //PWM Speed Control
+   analogWrite(E1, snelheidlinks);
+       analogWrite(E2, snelheidrechts);   //PWM Speed Control
      delay(afstand);
     analogWrite(E1, 0);   //PWM Speed Control
     analogWrite(E2, 0);
@@ -121,7 +146,7 @@ void draaiend (int afstand)
   digitalWrite(M1, HIGH); 
    digitalWrite(M2, LOW); 
     analogWrite(E1, 150);
-       analogWrite(E2, 80);
+       analogWrite(E2, snelheidrechts);
        delay(afstand);
        analogWrite(E1, 0);   //PWM Speed Control
     analogWrite(E2, 0);
@@ -215,16 +240,30 @@ void Lettera(){
 }
 void Letterb(){
   Serial.println("Letter b");
-  vooruit(700);
-  achteruit(350);
-  rechtsdraaien(780);
+  vooruit(600);
+  delay(200);
+  delay(1000);  
+  achteruit(325);
+  delay(300);
+  delay(1000);
+  rechtsdraaien(350);
+  delay(300);
+  delay(1000);
   vooruit(350);
-  rechtsdraaien(780);
+  delay(300);
+  delay(1000);
+  rechtsdraaien(350);
+  delay(300);
+  delay(1000);
   vooruit(350);
-  rechtsdraaien(780);
+  delay(300);
+  delay(1000);
+  rechtsdraaien(350);
+  delay(300);
+  delay(1000);
   vooruit(350);
-
-  
+  delay(300);
+  delay(1000);  
 }
 void Letterc(){
   Serial.println("Letter c");
@@ -232,27 +271,42 @@ void Letterc(){
 }
 void Letterd(){
   Serial.println("Letter d");
+  vooruit(1000);
 }
 void Lettere(){
   Serial.println("Letter e");
-  linksdraaien(1000);
-  vooruit(2000);
-  rechtsdraaien(1000);
-  vooruit(500);
-  achteruit(500);
-  rechtsdraaien(1000);
-  vooruit(500);
-  linksdraaien(1000);
-  vooruit(500);
-  achteruit(500);
-  rechtsdraaien(1000);
-  vooruit(500);
-  linksdraaien(1000);
-  vooruit(500);
-  rechtsdraaien(1000);
+  
+  vooruit(1500);
+  delay(1000);
+  rechtsdraaien(600);
+  delay(1000);
+  vooruit(900);
+  delay(1000);
+  achteruit(900);
+  delay(1000);
+  rechtsdraaien(650);
+  delay(1000);
   vooruit(1000);
-  linksdraaien(1000);
-  vooruit(500);
+  delay(1000);
+  linksdraaien(600);
+  delay(1000);
+  vooruit(1000);
+  delay(1000);
+  delay(100);
+  achteruit(1100);
+  delay(1000);
+  rechtsdraaien(600);
+  delay(1000);
+  vooruit(700);
+  delay(1000);
+  linksdraaien(600);
+  delay(1000);
+  vooruit(700);
+  delay(1000);
+  delay(100);
+  achteruit(500);
+  delay(1000);
+   
 }
 void Letterf(){
   Serial.println("Letter f");
@@ -289,11 +343,17 @@ void Letterh(){
 }
 void Letteri(){
   Serial.println("Letter i");
-  linksdraaien(1000);
-  vooruit(2000);
-  achteruit(2000);
-  rechtsdraaien(1000);
-  vooruit(500);
+  linksdraaien(650);
+  delay(1000);
+  vooruit(800);
+  delay(1000);
+  achteruit(700);
+  achteruitlangzaam(100);
+  delay(1000);
+  rechtsdraaien(500);
+  delay(1000);
+  vooruit(600);
+  delay(400);
 }
 void Letterj(){
   Serial.println("Letter j");
@@ -301,31 +361,65 @@ void Letterj(){
 void Letterk(){
   Serial.println("Letter k");
 }
+void spacer(){
+  Serial.println("spacer");
+  vooruit(900);
+  delay(1000);
+  achteruit(900);
+  delay(1000);
+  rechtsdraaien(500);
+  delay(1000);
+  vooruit(600);
+}  
+
 void Letterl(){
   Serial.println("Letter l");
-  linksdraaien(1000);
-  vooruit(2000);
-  achteruit(1000);
-  rechtsdraaien(1000);
-  vooruit(300);
-  rechtsdraaien(1000);
-  vooruit(1000);
-  rechtsdraaien(1000);
-  vooruit(500);
+  
+  linksdraaien(650);
+  delay(1000);
+  vooruit(900);
+  delay(1000);
+  achteruit(800);
+  achteruitlangzaam(100);
+  delay(1000);
+  rechtsdraaien(500);
+  delay(1000);
+  vooruit(600);
+  delay(400);
 }  
 void Letterm(){
   Serial.println("Letter m");
-  vooruit(700);
-  rechtsdraaien(680);
-  vooruit(500);
-  rechtsdraaien(680);
+  vooruit(1000);
+  delay(200);
+  delay(1000);
+  rechtsdraaien(600);
+  delay(200);
+  delay(1000);
   vooruit(700);
   delay(200);
-  achteruit(80M0); 
-  linksdraaien(680);
-  vooruit(500);
-  rechtsdraaien(680);
+  delay(1000);
+  rechtsdraaien(600);
+  delay(200);
+  delay(1000);
+  vooruit(1000);
+  delay(200);
+  delay(1000);
+  rechtsdraaien(200);
+  delay(200);
+  delay(1000);
+  achteruit(1100); 
+  delay(200);
+  delay(1000);
+  linksdraaien(620);
+  delay(300);
+  delay(1000);
   vooruit(700);
+  delay(300);
+  delay(1000);
+  rechtsdraaien(550);
+  delay(300);
+  delay(1000);
+  vooruit(1000);
   
 }
 void Lettern(){
@@ -333,13 +427,26 @@ void Lettern(){
 }
 void Lettero(){
   Serial.println("Letter o");
-  vooruit(700);
-  rechtsdraaien(700);
-  vooruit(700);
-  rechtsdraaien(700);
-  vooruit(700);
-  rechtsdraaien(700);
-  vooruit(700);
+//  delay(1000);
+//  vooruit(800);
+//  delay(1000);
+//  linksdraaien(650);
+//  delay(1000);
+//  vooruit(800);
+//  delay(1000);
+//  linksdraaien(650);
+//  delay(1000);
+//  vooruit(800);
+//  delay(1000);
+//  linksdraaien(650);
+//  delay(1000);
+//  vooruit(600);
+//  delay(1000);
+//  linksdraaien(650);
+//  delay(1000);
+//  vooruit(1000);
+  
+  draaiend(2000);
   
   
 }
@@ -519,3 +626,4 @@ void letterL(){
   digitalWrite(7,LOW);
   digitalWrite(8, LOW);
   }
+
